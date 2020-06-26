@@ -1,16 +1,15 @@
-# finder
+# Price Comparison App
 
-A new Flutter project.
+This app is made in Flutter, with a Python Flask backend. Stores supported currently are: Walmart, Target, Bestbuy. Walgreens, Staples, and TigerDirect.
 
-## Getting Started
+## Starting the backend
 
-This project is a starting point for a Flutter application.
+cd into the API path, where you should find app.py.
+type: flask run in the API directory, and you should be good.
+The backend will run on port 5000.
 
-A few resources to get you started if this is your first Flutter project:
+## Starting the front-end app (Flutter)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+In the root directory, open your terminal and type "flutter run -d <your device>"
+The app interfaces with the API in the searcher.dart file, in that file you can change important endpoints.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
