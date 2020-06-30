@@ -35,7 +35,7 @@ class SupportedStores extends StatelessWidget {
                   child:
                     Column(children: <Widget>[
                       Image.asset('../images/Walmart.png'),
-                      
+                      status['walmart'] ? Text("Working") : Text("Not Working")
                     ],) 
                   ,
                 ),
@@ -61,6 +61,7 @@ class SupportedStores extends StatelessWidget {
 
 
                       ),
+                      status['target'] ? Text("Working") : Text("Not Working")
 
                
                     ],) 
@@ -84,6 +85,9 @@ class SupportedStores extends StatelessWidget {
                       child: 
                       Image.asset('../images/Staples2.png', scale: 11,)
                     ,),
+
+                    status['staples'] ? Text("Working") : Text("Not Working")
+                    
                     
                   ],),
                 )
@@ -105,6 +109,7 @@ class SupportedStores extends StatelessWidget {
                   child:
                     Column(children: <Widget> [
                       Image.asset('../images/Walgreens.png', scale: 5,),
+                      status['walgreens'] ? Text("Working") : Text("Not Working")
                       
 
                     ],)
@@ -127,6 +132,7 @@ class SupportedStores extends StatelessWidget {
                           Image.asset('../images/BestBuy2.png', scale: 1.5,)
                       
                       ,),
+                      status['bestbuy'] ? Text("Working") : Text("Not Working")
                       
                       
                     ],)
@@ -145,6 +151,7 @@ class SupportedStores extends StatelessWidget {
                   child:
                     Column(children: <Widget>[
                       Image.asset('../images/TigerDirect.png', scale: 1.2),
+                      status['tigerdirect'] ? Text("Working") : Text("Not Working")
                       
                     ],)
                   ,
