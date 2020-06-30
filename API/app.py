@@ -77,8 +77,8 @@ def status():
         value['walmart'] = True
         
     # UPCITEMDB API CHECK
-    r = requests.get("https://api.upcitemdb.com/prod/trial/lookup?upc=190199098428")
-    if r.status_code == 200:
+    r2 = requests.get("https://api.upcitemdb.com/prod/trial/lookup?upc=190199098428")
+    if r2.status_code == 200:
         value['bestbuy'] = True
         value['tigerdirect'] = True
         
