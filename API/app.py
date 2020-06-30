@@ -5,15 +5,27 @@ import requests
 import json
 
 
+# Read from config.json file
+
+with open('config.json') as f:
+  config = json.load(f)
+f.close()
+
+
 
 app = Flask(__name__)
 CORS(app)
+
+
+
+
+
 
 def physicalPrices(upc):
     value = {'target': 'Product not found!', 'walgreens': 'Product not found!', 'staples': 'Product not found!', 'walmart': 'Product not found!', 'bestbuy': 'Product not found!'}
     
     # Target, Staples, Walgreens, Walmart API.
-    r = requests.get("https://api.barcodelookup.com/v2/products?barcode={}&formatted=y&key=3jn22y9gwogd6j0gs41iie79l40xyk".format(upc))
+    r = requests.get("https://api.barcodelookup.com/v2/products?barcode={}&formatted=y&key={}".format(upc, config['barcodelookup_apikey']))
     response = r.json()
     for i in range(len(response["products"][0]['stores'])):
         if response["products"][0]['stores'][i]["store_name"] == "Target":
@@ -57,7 +69,7 @@ def onlinePrices(upc):
 
 def productInfo(upc):
     value = {}
-    r = requests.get("https://api.barcodelookup.com/v2/products?barcode={}&formatted=y&key=3jn22y9gwogd6j0gs41iie79l40xyk".format(upc))
+    r = requests.get("https://api.barcodelookup.com/v2/products?barcode={}&formatted=y&key={}".format(upc,config['barcodelookup_apikey']))
     response = r.json()
     value['productname'] = response["products"][0]['product_name']
     value['productimage'] = response["products"][0]['images'][0]
