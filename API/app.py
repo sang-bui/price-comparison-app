@@ -67,7 +67,24 @@ def productInfo(upc):
     
 
 def status():
-    value = {'target': True, 'walgreens': True, 'staples': True, 'walmart': True, 'bestbuy': True, 'tigerdirect': True}
+    value = {'target': False, 'walgreens': False, 'staples': False, 'walmart': False, 'bestbuy': False, 'tigerdirect': False}
+    # API CHECKS - BarcodeLookup
+    r = requests.get("https://api.barcodelookup.com/v2/products?barcode=190199098428&formatted=y&key=3jn22y9gwogd6j0gs41iie79l40xyk")
+    if r.status_code == 200:
+        value['target'] = True
+        value['walgreens'] = True
+        value['staples'] = True
+        value['walmart'] = True
+        
+    # UPCITEMDB API CHECK
+    r = requests.get("https://api.upcitemdb.com/prod/trial/lookup?upc=190199098428")
+    if r.status_code == 200:
+        value['bestbuy'] = True
+        value['tigerdirect'] = True
+        
+        
+        
+
     return value
 
 
