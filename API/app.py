@@ -81,7 +81,7 @@ def productInfo(upc):
 def status():
     value = {'target': False, 'walgreens': False, 'staples': False, 'walmart': False, 'bestbuy': False, 'tigerdirect': False}
     # API CHECKS - BarcodeLookup
-    r = requests.get("https://api.barcodelookup.com/v2/products?barcode=190199098428&formatted=y&key=3jn22y9gwogd6j0gs41iie79l40xyk")
+    r = requests.get("https://api.barcodelookup.com/v2/products?barcode=190199098428&formatted=y&key={}".format(config['barcodelookup_apikey']))
     if r.status_code == 200:
         value['target'] = True
         value['walgreens'] = True
